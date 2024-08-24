@@ -1,0 +1,430 @@
+.homepage-background {
+    background-image: url('images/home_background.png');
+    background-size: cover;
+    background-position: center;
+    height: 100vh; 
+}
+.about-background {
+    background-image: url('images/about_background.png');
+    background-size: cover;
+    background-position: center;
+    height: 100vh; 
+}
+.importance-background {
+    background-image: url('images/about_background.png');
+    background-size: cover;
+    background-position: center;
+    height: 100vh; 
+}
+.career {
+    background-image: url('images/about_background.png');
+    background-size: cover;
+    background-position: center;
+    height: 100vh; 
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    scroll-behavior: smooth;
+}
+
+nav ul {
+    list-style: none; 
+    display: flex;
+    padding: 0;
+    margin: 0;
+    justify-content: flex-end;
+    gap: -5px;
+
+}
+nav ul li a{
+    color: white;
+    margin-right: 70px;
+    margin-top: -10px;
+    text-decoration: none;
+    font-family: 'Cinzel', serif;
+    font-size: 22px;
+    cursor: pointer;
+    transition: color 0.3s ease, border-bottom 0.3s ease;
+    
+}
+nav ul li a.active {
+    color: orange; 
+    border-bottom: 2px solid orange; 
+}
+.web{
+    color: white;
+    font-size: 50px;
+    margin-left: 150px;
+    margin-top: 150px;
+    font-family: 'Baron', serif;
+
+}
+.dev{
+    font-family: 'Balgin', serif;
+}
+.programmer{
+    margin-top: -350px;
+    margin-left: 700px;
+    width: 500px;
+    height: auto;
+}
+button{
+    margin-left: 150px;
+    border-radius: 20px;
+    height: 40px;
+    width: 130px;
+    background-color: #f64929;
+    color: white;
+    border: none;
+    cursor: pointer;
+    
+}
+button:hover{
+    box-shadow: 0 1px 8px white;
+}
+/* about section */
+.whatis{
+    color: white;
+    text-align: center;
+    margin-top: -5px;
+    font-family: 'Playfair Display', serif;
+}
+.think{
+    margin-left: 100px;
+    margin-top: -240px; 
+}
+.definition{
+    color: white;
+    margin-left: 620px;
+    margin-top: 80px;
+    font-size: 20px;
+}
+.definition2{
+    color: white;
+    font-size: 20px;
+    margin-left: 620px;
+}
+.hidden-content {
+    opacity: 0;
+    transform: translateY(-20px); 
+    visibility: hidden; 
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out, visibility 0.3s ease-in-out;
+}
+
+.hidden-content.show {
+    opacity: 1;
+    transform: translateY(0); 
+    visibility: visible; 
+}
+
+.rm_btn {
+    position: relative;
+    top: -200px;
+    transition: top 0.5s ease-in-out; 
+}
+
+.rm_btn.moved {
+    top: -90px; 
+}
+/* Keyframes for sliding up animation in about section */
+@keyframes slideInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.fade-slide {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.3s ease, transform 0.6s ease;
+}
+.fade-slide-in {
+    animation: slideInUp 0.6s ease-out forwards;
+}
+
+
+/* importance section */
+.program {
+    left: 470px;
+    top: -50px;
+    position: relative;
+    transform: translateY(50px); 
+    opacity: 0; 
+    transition: opacity 0.5s ease, transform 0.5s ease; 
+}
+
+.gray {
+    position: relative;
+    top: -152px;
+    left: 150px !important;
+    transform: translateY(50px); 
+    width: 70%;
+    height: 270px;
+    padding: 20px;
+    box-shadow: 0 2px 5px gray;
+    background-color: #515964;
+    color: white;
+    opacity: 0; 
+    transition: opacity 0.5s ease, transform 0.5s ease; 
+    transform-origin: center; 
+}
+
+.show {
+    opacity: 1; 
+    transform: translateY(0); 
+}
+.gray h1{
+    color: white;
+    text-align: center;
+    font-size: 26px;
+    top: -10px;
+    position: relative;
+}
+
+
+/* career part */
+.bino{
+    height: 350px;
+    margin-left: 100px;
+    margin-top: 130px;
+}
+.job1, .job2 {
+    font-size: 2rem; 
+    position: relative; 
+    top: -320px; 
+    transform: translateY(-50%); 
+    text-align: center; 
+    margin-left: 500px;
+    width: 200px;
+    height: 200px;
+    background-color: transparent;
+    border: 1px solid #ccc; 
+    
+}
+
+/* Bounce animation for .think */
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    30% {
+        transform: translateY(-40px); 
+    }
+    50% {
+        transform: translateY(-30px); 
+    }
+    70% {
+        transform: translateY(-20px); 
+    }
+
+}
+
+.think {
+    animation: bounce 5s ease-in-out infinite; 
+}
+
+/* home animation */
+@keyframes slideInRight {
+    0% {
+        opacity: 0;
+        transform: translateX(100px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Apply animations when the 'animated' class is added */
+.animated.web {
+    animation: slideInLeft 1s ease-in-out forwards;
+}
+.animated.btn {
+    animation: slideInLeft 1s ease-in-out forwards;
+}
+
+.animated.programmer {
+    animation: slideInRight 1s ease-in-out forwards;
+}
+
+
+
+@media (min-width: 320px) and (max-width: 767px) {
+    body, html {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        width: 100%;
+        scroll-behavior: smooth;
+    }
+    .homepage-background {
+        background-image: url('images/home_phone.png');
+        background-size: cover;
+        background-position: center;
+        height: 100vh; /* Full viewport height */
+        margin: 0; 
+    }
+
+    .about-background {
+        background-image: url('images/about_phone.png');
+        background-size: cover;
+        background-position: center;
+        height: 100vh; 
+        margin: 0; 
+    }
+    
+    .web {
+        font-size: 25px; 
+        margin-top: -10px;
+        margin-left: -10%;
+        text-align: center;
+    }
+    .programmer{
+        top: -30px;
+        margin-left: 20%;
+        max-width: 60%;
+        justify-content: center;
+        align-items: center;
+        width: 230px;
+        position: relative;
+    }
+    .btn{
+        margin-top: 200px;
+        margin-left: 100px;
+        width: 100px;
+        height: 30px;
+        justify-content: center;
+    }
+    .btn:hover{
+        box-shadow: 0 1px 8px white;
+    }
+
+    .whatis{
+        font-size: 23px;
+        margin-top: 20px;
+        margin: 0 auto;
+        text-align: center;
+    }
+    .think {
+        max-width: 50%; 
+        height: auto;
+        margin-left: 80px;
+        top: -170px;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+    }
+    
+    .definition, .definition2 {
+        font-size: 3.3vmin;
+        word-wrap: break-word;
+        margin-left: 8px; 
+        margin-top: 180px;
+    }
+    .definition2{
+        margin-top: 20px;
+        word-wrap: break-word;
+    }
+    .rm_btn {
+        position: relative;
+        top: -100px; 
+        left: -10%; 
+        transform: translateX(-50%); 
+        transition: top 0.5s ease-in-out; 
+        width: 100px;
+        height: 30px;
+        display: flex; 
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .rm_btn.moved {
+        top: -20px;
+    }
+    .program{
+        left: 60px;
+        top: 50px;
+        max-width: 60%;
+        justify-content: center;
+    }
+    nav ul li a{
+        visibility: hidden;
+        
+    }
+    .program {
+        left: 25%;
+        top: -30px;
+        position: relative;
+        justify-content: center;
+        transform: translateY(50px); 
+        opacity: 0; 
+        transition: opacity 0.5s ease, transform 0.5s ease; 
+    }
+    
+    .gray {
+        position: relative;
+        justify-content: center;
+        align-items: center;
+        top: -90px;
+        left: 10% !important; 
+        transform: translateY(50px); 
+        width: 70%;
+        max-height: 55%;
+        min-height: 50%;
+        padding: 20px;
+        box-shadow: 0 2px 5px gray;
+        background-color: #515964;
+        color: white;
+        opacity: 0; 
+        transition: opacity 0.5s ease, transform 0.5s ease; 
+        transform-origin: center;
+    }
+    
+    
+    .show {
+        opacity: 1; 
+        transform: translateY(0); 
+    }
+    .gray h1{
+        color: white;
+        text-align: center;
+        font-size: 20px;
+        top: -10px;
+        position: relative;
+    }
+    .gray p{
+        font-size: clamp(3vmin, 2.5vw, 2vh); 
+        top: -14px;
+        position: relative;
+    }
+    
+}
+@media (min-width: 425px) {
+    .gray {
+        width: 80%;
+        max-width: 90%; 
+        max-height: 55%;
+        min-height: 45%; 
+        left: 1% !important;
+        margin: 0 auto; 
+    }
+}

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Baron&family=Roboto&family=Cinzel&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+    <title>Web Dev</title>
+</head>
+<body>
+    <div id=home class="homepage-background">
+        <!--NAVIGATION-->
+        <header>
+            <nav>
+                <div class="hamburger" onclick="toggleNav()">☰</div>
+                <ul id="nav-links">
+                    <li><a href="#home" class="active">HOME</a></li>
+                    <li><a href="#about">ABOUT</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <h1 class="web">WEB <br> <span class='dev'>DEVELOPMENT</span></h1>
+        <button class="btn">Learn More</button>
+        <img src="images/home_programmer.png" alt="homepage" class="programmer">
+
+        <div class="about-background" id="about">
+            <h1 class="whatis fade-slide">What is Web<br> Development</h1>
+            <p class="definition fade-slide">Web development is a multifaceted field dedicated to creating, designing, <br> and maintaining websites and web applications. It represents a blend of <br>creativity and technical expertise, aimed at building functional and <br> aesthetically pleasing digital platforms. To grasp the essence of web <br>development, it's essential to explore its various components and processes.</p>
+            <p class="definition2 hidden-content">Web development involves various aspects such as web design, web programming,  and database management. It encompasses front-end development, focusing on user interface and user experience, as well as back-end development, dealing with server-side logic and database integration.</p>
+            <img src="images/thinking.png" alt="homepage" class="think">
+            <button class="rm_btn fade-slide" onclick="toggleReadMore()">Read More</button>
+        </div>
+
+        <div class="importance-background">
+            <img src="images/programming.png" alt="homepage" class="program">
+            <div class="gray">
+                <h1>Why Web Development?</h1>
+                <p>• Web development enables businesses and individuals to establish an online presence, making information, products, and services accessible to a global audience 24/7. This is especially important in today's digital age, where most consumers search online before making decisions.</p> 
+                <p>• Websites provide a platform for communication between businesses and their customers. Features like contact forms, chatbots, and social media integrations enhance interaction, allowing businesses to engage with their audience effectively.</p>
+                <p>• Web development allows for the integration of analytics tools, enabling businesses to collect data on user behavior, preferences, and trends. This data is valuable for making informed decisions, improving products or services, and personalizing user experiences.</p>
+            </div>
+        </div>
+
+        
+        
+
+        <!-- ------------------------------------------------------------------------ -->
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                const picElement = document.querySelector(".programmer");
+                picElement.classList.add("animated");
+    
+                const textElement = document.querySelector(".web");
+                textElement.classList.add("animated");
+
+                const btnElement = document.querySelector(".btn");
+                btnElement.classList.add("animated");
+            });
+
+            //////////////////////////////////////////////////////////////////////////////
+
+            // fade upward effect
+            document.addEventListener('DOMContentLoaded', function() {
+                // Select all elements with the 'fade-slide' class
+                const elements = document.querySelectorAll('.fade-slide');
+        
+                // Create an Intersection Observer
+                const observer = new IntersectionObserver(entries => {
+                    entries.forEach(entry => {
+                        // Check if the element is in view
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('fade-slide-in');
+                            // Stop observing after the animation has been added
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                });
+        
+                // Observe each element
+                elements.forEach(element => {
+                    observer.observe(element);
+                });
+            });
+
+            /////////////////////////////////////////////////////////////////////////
+            function toggleReadMore() {
+                const definition2 = document.querySelector('.definition2');
+                const btn = document.querySelector('.rm_btn');
+            
+                if (definition2.classList.contains('show')) {
+                    definition2.classList.remove('show');
+                    btn.textContent = 'Read More';
+                    btn.classList.remove('moved'); // Remove class to move button back up
+                } else {
+                    definition2.classList.add('show');
+                    btn.textContent = 'See Less';
+                    btn.classList.add('moved'); // Add class to move button down
+                }
+            }
+
+             ///////////////////////////////////////////////////////////////////////////////////////
+             // slide up effect in importance 
+             document.addEventListener('scroll', function() {
+                const elementsToShow = document.querySelectorAll('.program, .gray');
+                
+                elementsToShow.forEach(function(element) {
+                    const rect = element.getBoundingClientRect();
+                    const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+            
+                    if (rect.top <= windowHeight - 100) { // Trigger when 100px of the element is visible
+                        element.classList.add('show');
+                    }
+                });
+            });
+
+            //////////////////////////////////////////////////////////////////////////////
+            //active hyperlink
+            
+            document.addEventListener('DOMContentLoaded', () => {
+                const navLinks = document.querySelectorAll('nav ul li a');
+            
+                // Function to set the active link based on hash
+                function setActiveLink() {
+                    const currentLocation = window.location.hash || '#home'; // Default to #home
+                    navLinks.forEach(link => {
+                        if (link.getAttribute('href') === currentLocation) {
+                            link.classList.add('active');
+                        } else {
+                            link.classList.remove('active');
+                        }
+                    });
+                }
+            
+                // Set active link on page load
+                setActiveLink();
+            
+                // Set active link on hash change (when navigating with anchor links)
+                window.addEventListener('hashchange', setActiveLink);
+            
+                // Set active link on click (for smooth scrolling)
+                navLinks.forEach(link => {
+                    link.addEventListener('click', () => {
+                        navLinks.forEach(navLink => navLink.classList.remove('active')); // Remove active from all links
+                        link.classList.add('active'); // Add active to the clicked link
+                    });
+                });
+            });
+            
+            
+        </script>
+    </div>
+</body>
+</html>
